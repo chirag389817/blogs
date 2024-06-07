@@ -7,3 +7,15 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+:root {
+    --title: 255, 255, 255;
+    --theme-switch-color: rgb(234, 179, 8);
+    --theme-switch-translate-x: -0.5rem;
+}
+
+.dark {
+    --title: 0, 0, 0;
+    --theme-switch-color: rgb(55, 65, 81);
+    --theme-switch-translate-x: 100%;
+}
