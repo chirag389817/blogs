@@ -10,12 +10,12 @@ function BlogParagraph({ children, type = "normal" }: TBlogParagraphProps) {
             return <p className="pb-6"> {children}</p>;
         case "summary":
             return (
-                <div className="border-l-4 border-gray-500 pl-4 mb-6 italic rounded">
+                <div className="border-l-4 border-gray-500 dark:border-gray-400 pl-4 mb-6 italic rounded">
                     {children}
                 </div>
             );
         case "line":
-            return <p> {children}</p>;
+            return <p className="pb-2"> {children}</p>;
     }
 }
 

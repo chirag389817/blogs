@@ -33,7 +33,7 @@ function CopyButton({ content }: TContentProps) {
 
 function CopyCommand({ content }: TContentProps) {
     return (
-        <code className="text-sm sm:text-base flex text-left items-center space-x-4 bg-gray-800 text-white rounded-lg p-1 mb-4 pl-6 pr-3">
+        <code className="text-sm sm:text-base flex text-left items-center space-x-4 bg-gray-800 text-gray-200 rounded-lg p-1 mb-4 pl-6 pr-3">
             <span className="flex gap-4 w-full">
                 <span className="shrink-0 text-gray-500">$</span>
                 <span className="flex-1">{content}</span>
@@ -45,7 +45,7 @@ function CopyCommand({ content }: TContentProps) {
 
 function CopyCode({ content }: TContentProps) {
     return (
-        <div className="bg-gray-900 text-white p-4 rounded-md">
+        <div className="bg-gray-800 text-gray-200 p-4 rounded-md mb-4">
             <div className="flex justify-between items-center mb-2">
                 <span className="text-gray-400">Code:</span>
                 <CopyButton content={content} />

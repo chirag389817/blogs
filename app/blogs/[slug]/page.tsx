@@ -3,6 +3,7 @@ import BlogImage from "@/components/blog/BlogImage";
 import BlogImageIntro from "@/components/blog/BlogImageIntro";
 import BlogParagraph from "@/components/blog/BlogParagraph";
 import BlogTitle from "@/components/blog/BlogTitle";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 type PageProps = {
@@ -24,7 +25,7 @@ function page({ params }: PageProps) {
                         date="14 Aug 2024"
                     />
 
-                    <div className="px-4 lg:px-0 mt-12 text-gray-700 max-w-screen-md mx-auto text-lg leading-relaxed">
+                    <div className="px-4 lg:px-0 mt-12 text-gray-700 dark:text-gray-200 max-w-screen-md mx-auto text-lg leading-relaxed">
                         <BlogParagraph>
                             Advantage old had otherwise sincerity dependent
                             additions. It in adapted natural hastily is justice.
@@ -118,6 +119,7 @@ function page({ params }: PageProps) {
                     </div>
                 </main>
             </div>
+            <Footer />
         </>
     );
 }
