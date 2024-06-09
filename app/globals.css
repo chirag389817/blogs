@@ -10,12 +10,18 @@
 
 :root {
     --title: 255, 255, 255;
-    --theme-switch-color: rgb(234, 179, 8);
     --theme-switch-translate-x: -0.5rem;
+    --bg-body: rgb(243, 244, 246);
+    --bg-hover: rgb(229, 231, 235);
 }
 
 .dark {
     --title: 0, 0, 0;
-    --theme-switch-color: rgb(55, 65, 81);
     --theme-switch-translate-x: 100%;
+    --bg-body: rgb(20, 85, 215);
+    --bg-hover: rgb(75, 85, 99);
+}
+
+body {
+    background: var(--bg-body);
 }
