@@ -1,4 +1,5 @@
 import BlogCard from "@/components/BlogCard";
+import Pagination from "@/components/Pagination";
 
 type TPageProps = {
     params: {
@@ -29,6 +30,11 @@ function page({ params }: TPageProps) {
                 party messenger bag selfies, poke vaporware kombucha
                 lumbersexual pork belly polaroid hoodie portland craft beer."
                 blogSlug="first-blog"
+            />
+            <Pagination
+                currentPage={4}
+                totalPage={8}
+                urlPrefix="/categories/abcd?"
             />
         </main>
     );
