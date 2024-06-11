@@ -1,40 +1,62 @@
 import BlogCard from "@/components/BlogCard";
 import Pagination from "@/components/Pagination";
+import { getPrismaClient } from "@/prisma";
+import { notFound } from "next/navigation";
 
 type TPageProps = {
     params: {
         category: string;
     };
+    searchParams: {
+        page: number | null;
+    };
 };
-function page({ params }: TPageProps) {
+
+const PAGE_LENGTH = 10;
+
+async function page({ params, searchParams }: TPageProps) {
+    const category = await getPrismaClient()?.category.findFirst({
+        where: {
+            name: {
+                equals: params.category.replaceAll("-", " "),
+                mode: "insensitive"
+            }
+        },
+        include: {
+            blogs: {
+                orderBy: {
+                    date: "desc"
+                }
+            }
+        }
+    });
+    if (!category) notFound();
+
+    const pageNum = searchParams.page ?? 1;
+    const start = (pageNum - 1) * PAGE_LENGTH;
+    const end = start + PAGE_LENGTH;
+
+    const blogs = category.blogs.slice(start, end);
+
     return (
-        <main className="min-h-[85vh]">
+        <main className="min-h-[85vh] flex flex-col ">
             <h1 className="text-center capitalize text-2xl mt-6 text-gray-900 title-font font-semibold dark:text-gray-200">
-                {params.category} Blogs
+                {category.name.toLowerCase()} Blogs
             </h1>
-            <BlogCard
-                title="Bitters hashtag waistcoat fashion axe chia unicorn"
-                category="Category"
-                description="Glossier echo park pug, church-key sartorial biodiesel
-                vexillologist pop-up snackwave ramps cornhole. Marfa 3 wolf moon
-                party messenger bag selfies, poke vaporware kombucha
-                lumbersexual pork belly polaroid hoodie portland craft beer."
-                blogSlug="first-blog"
-                showCategory={false}
-            />
-            <BlogCard
-                title="Bitters hashtag waistcoat fashion axe chia unicorn"
-                category="Category"
-                description="Glossier echo park pug, church-key sartorial biodiesel
-                vexillologist pop-up snackwave ramps cornhole. Marfa 3 wolf moon
-                party messenger bag selfies, poke vaporware kombucha
-                lumbersexual pork belly polaroid hoodie portland craft beer."
-                blogSlug="first-blog"
-            />
+            {blogs.map((blog) => (
+                <BlogCard
+                    key={blog.id}
+                    title={blog.title}
+                    description={blog.description}
+                    date={blog.date}
+                    // category={category.name}
+                />
+            ))}
+
             <Pagination
-                currentPage={4}
-                totalPage={8}
-                urlPrefix="/categories/abcd?"
+                currentPage={pageNum}
+                totalPage={Math.ceil(category.blogs.length / PAGE_LENGTH)}
+                urlPrefix={`/categories/${category.name}?`}
             />
         </main>
     );

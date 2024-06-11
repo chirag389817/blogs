@@ -60,6 +60,12 @@ function Footer() {
                                     <li>
                                         <a
                                             className="text-gray-400 hover:underline py-1 text-sm"
+                                            href="/blogs"
+                                        >
+                                            Blogs
+                                        </a>
+                                        <a
+                                            className="text-gray-400 hover:underline py-1 text-sm"
                                             href="/categories"
                                         >
                                             Categories

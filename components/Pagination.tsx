@@ -93,8 +93,9 @@ function LinearPagination({
                 .fill(1)
                 .map((num, idx) => (
                     <PageLink
+                        key={idx}
                         href={`${urlPrefix}page=${idx + 1}`}
-                        current={idx + 1 === currentPage}
+                        current={idx + 1 == currentPage}
                     >
                         {idx + 1}
                     </PageLink>
@@ -105,7 +106,7 @@ function LinearPagination({
 
 function Pagination(props: TPaginationProps) {
     return (
-        <ul className="flex text-sm justify-center items-end py-6">
+        <ul className="flex text-sm justify-center items-end py-6 mt-auto">
             {props.currentPage > 1 && (
                 <PageLink
                     href={`${props.urlPrefix}page=${props.currentPage - 1}`}

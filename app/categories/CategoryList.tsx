@@ -25,7 +25,7 @@ function CategoryList({ categories }: { categories: TCategoryProps[] }) {
 
             <div className="grid grid-cols-2 justify-center md:grid-cols-3 gap-4 mb-6">
                 {filteredCategories.map((cat) => (
-                    <CategoryCard {...cat} />
+                    <CategoryCard key={cat.name} {...cat} />
                 ))}
             </div>
         </>

@@ -96,6 +96,7 @@ export default function Navbar() {
                         className="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:items-center md:flex-row"
                         ref={menuRef}
                     >
+                        <NavLink href="/blogs">Blogs</NavLink>
                         <NavLink href="/categories">Categories</NavLink>
                         <NavLink href="#">Portfolio</NavLink>
                         <NavLink href="/#about">About</NavLink>

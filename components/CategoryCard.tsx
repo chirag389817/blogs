@@ -1,19 +1,20 @@
 export type TCategoryProps = {
     name: string;
-    thumb: string;
-    description?: string;
+    thumbnail: string;
+    description?: string | null;
 };
 
-function CategoryCard({ name, description, thumb }: TCategoryProps) {
+function CategoryCard({ name, description, thumbnail }: TCategoryProps) {
+    const catLink = `/categories/${name.toLowerCase().replaceAll(" ", "-")}`;
     return (
         <a
             className="group relative m-0 flex flex-grow cursor-pointer h-60 rounded-xl shadow-xl ring-gray-900/5 sm:mx-auto sm:max-w-lg mx-auto"
-            href={`/categories/${name}`}
+            href={catLink}
         >
-            <div className="z-10 h-full w-full overflow-hidden rounded-xl border border-gray-200 opacity-80 transition duration-300 ease-in-out group-hover:opacity-100 dark:border-gray-700 dark:opacity-70">
+            <div className="z-10 h-full w-full overflow-hidden rounded-xl border border-gray-200 opacity-90 transition duration-300 ease-in-out group-hover:opacity-100 dark:border-gray-700 ">
                 <img
                     className="animate-fade-in block h-full w-full scale-100 transform object-cover object-center opacity-100 transition duration-300 group-hover:scale-110"
-                    src={thumb}
+                    src={thumbnail}
                     alt="category thumbnail"
                 />
             </div>
