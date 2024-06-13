@@ -22,6 +22,7 @@ model Blog {
   date  DateTime
   description String
   categoryID String  @db.ObjectId
+  content String
 
   category  Category @relation(fields: [categoryID], references: [id])
 }

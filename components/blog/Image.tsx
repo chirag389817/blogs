@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-type TBlogImageProps = {
+type TImageProps = {
     src: string;
     alt?: string;
 };
 
-function BlogImage({ src, alt = "image" }: TBlogImageProps) {
+function BlogImage({ src, alt = "image" }: TImageProps) {
     if (!src) return <></>;
     return (
         <div>

@@ -97,7 +97,7 @@ export default function Navbar() {
                         ref={menuRef}
                     >
                         <NavLink href="/blogs">Blogs</NavLink>
-                        <NavLink href="/categories">Categories</NavLink>
+                        {/* <NavLink href="/categories">Categories</NavLink> */}
                         <NavLink href="#">Portfolio</NavLink>
                         <NavLink href="/#about">About</NavLink>
                         <ThemeSwitch className="hidden md:block md:ml-4" />

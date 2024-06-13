@@ -8,7 +8,7 @@ export type TBlogCardProps = {
     date: Date;
 };
 
-const months = [
+export const months = [
     "Jan",
     "Feb",
     "Mar",

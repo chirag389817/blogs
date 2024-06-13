@@ -1,9 +1,9 @@
-type TBlogParagraphProps = {
+type TParagraphProps = {
     children: React.ReactNode;
     type?: "normal" | "summary" | "line";
 };
 
-function BlogParagraph({ children, type = "normal" }: TBlogParagraphProps) {
+function Paragraph({ children, type = "normal" }: TParagraphProps) {
     if (!children) return <></>;
     switch (type) {
         case "normal":
@@ -19,4 +19,4 @@ function BlogParagraph({ children, type = "normal" }: TBlogParagraphProps) {
     }
 }
 
-export default BlogParagraph;
+export default Paragraph;

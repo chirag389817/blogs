@@ -64,12 +64,12 @@ function Footer() {
                                         >
                                             Blogs
                                         </a>
-                                        <a
+                                        {/* <a
                                             className="text-gray-400 hover:underline py-1 text-sm"
                                             href="/categories"
                                         >
                                             Categories
-                                        </a>
+                                        </a> */}
                                     </li>
                                     <li>
                                         <a
