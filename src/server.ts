@@ -15,9 +15,7 @@ app.get('/', async (req, res) => {
     const html = await ejs.renderFile(path.join(process.cwd(), 'views', 'index.ejs'), { name: "Chirag" });
     const outputPath = path.join(process.cwd(), 'public', 'index.html');
     res.send(html);
-    fs.writeFile(outputPath, html, (err) => {
-        console.error("Error writing to file:", err);
-    })
+    fs.writeFileSync(outputPath, html);
 });
 
 app.listen(PORT, () => {
