@@ -18,10 +18,12 @@
   "license": "ISC",
   "description": "Blogs app of Chirag Patel",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^5.1.0"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.2",
+    "@types/ejs": "^3.1.5",
     "@types/express": "^5.0.3",
     "@types/node": "^24.3.0",
     "tsx": "^4.20.4",
