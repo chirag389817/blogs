@@ -15,10 +15,10 @@ app.get('/', async (req, res) => {
     const html = await ejs.renderFile(path.join(process.cwd(), 'views', 'index.ejs'), { name: "Chirag" });
     const outputPath = path.join(process.cwd(), 'public', 'index.html');
     res.send(html);
-    fs.writeFileSync(outputPath, html);
+    if (process.env.NODE_ENV === 'production')
+        fs.writeFileSync(outputPath, html);
 });
 
 app.listen(PORT, () => {
     console.log(`Blogs app listening on port ${PORT}`)
-    console.log(process.cwd());
 })

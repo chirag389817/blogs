@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "imports": {
-    "#*/": "./src/*",
-    "#*": "./src/*/index.js"
+    "#*/": "./dist/*",
+    "#*": "./dist/*/index.js"
   },
   "scripts": {
     "dev": "tsx --watch --env-file .env.local ./src/server.ts",
