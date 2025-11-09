@@ -98,6 +98,5 @@ nav #theme-toggle {
 }
 
 nav #theme-toggle:hover {
-    background-color: var(--link-hover);
-    color: #fff;
+    color: var(--link-hover);
 }

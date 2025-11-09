@@ -1,4 +1,4 @@
-import { PORT } from '#configs'
+import { NODE_ENV, PORT } from '#configs'
 import express from 'express'
 import path from 'path';
 import ejs from 'ejs';
@@ -11,12 +11,13 @@ app.set("views", path.join(process.cwd(), 'views'));
 app.use(express.static(path.join(process.cwd(), 'public')));
 
 app.get('/', async (req, res) => {
-    console.log("rendering.......");
+    console.log("rendering home page");
     const html = await ejs.renderFile(path.join(process.cwd(), 'views', 'index.ejs'), { name: "Chirag" });
-    const outputPath = path.join(process.cwd(), 'public', 'index.html');
     res.send(html);
-    if (process.env.NODE_ENV === 'production')
+    if (NODE_ENV === 'production'){
+        const outputPath = path.join(process.cwd(), 'public', 'index.html');
         fs.writeFileSync(outputPath, html);
+    }
 });
 
 app.listen(PORT, () => {
